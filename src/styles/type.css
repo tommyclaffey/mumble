@@ -1,0 +1,43 @@
+/**
+ * Type — named styles, no ad-hoc sizes.
+ *
+ * The Figma rebuild replaced 55 ad-hoc size/weight combinations with 18 named
+ * styles. The point of naming them is that a component can only reach for one
+ * that exists, so the 56th combination has nowhere to live.
+ *
+ * ⭐ The distinction that matters most here is Body vs Body/Reading.
+ * `Body` is 13/16 for single-line UI — labels, metadata, chips.
+ * `Body/Reading` is 13/20 for running text — AI blocks, transcript excerpts.
+ * Those are paragraphs, not labels, and 16px leading on a paragraph is what
+ * makes a wall of text unreadable. In a product whose origin story is
+ * dyslexia, that line-height is a feature, not a preference.
+ */
+
+.mb-type-display    { font: 600 28px/34px var(--font-sans); letter-spacing: -0.02em; }
+.mb-type-title      { font: 600 20px/26px var(--font-sans); letter-spacing: -0.01em; }
+.mb-type-heading    { font: 600 16px/22px var(--font-sans); }
+.mb-type-subheading { font: 500 14px/20px var(--font-sans); }
+
+.mb-type-body         { font: 400 13px/16px var(--font-sans); }
+.mb-type-body-medium  { font: 500 13px/16px var(--font-sans); }
+/* ⭐ Running text. Never use .mb-type-body for a paragraph. */
+.mb-type-reading      { font: 400 13px/20px var(--font-sans); }
+.mb-type-reading-lg   { font: 400 15px/24px var(--font-sans); }
+
+.mb-type-label   { font: 500 12px/16px var(--font-sans); }
+.mb-type-caption { font: 400 12px/16px var(--font-sans); }
+.mb-type-micro   { font: 500 10px/14px var(--font-sans); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* Timestamps and durations. Tabular figures so a list of times does not
+   shimmer as the seconds tick — proportional digits change width per glyph. */
+.mb-type-time { font: 400 12px/16px var(--font-sans); font-variant-numeric: tabular-nums; }
+
+/* Mobile runs one step up. A phone is held further from nothing and closer to
+   everything, and 13px reading text on a 402px screen is not readable. */
+@media (max-width: 600px) {
+  .mb-type-display  { font-size: 34px; line-height: 40px; }
+  .mb-type-title    { font-size: 24px; line-height: 30px; }
+  .mb-type-heading  { font-size: 18px; line-height: 24px; }
+  .mb-type-reading  { font-size: 15px; line-height: 24px; }
+  .mb-type-body     { font-size: 15px; line-height: 20px; }
+}
