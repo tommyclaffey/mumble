@@ -32,9 +32,21 @@ wrong *consistently* — it decides turn 1 is "Speaker 2", then matches that
 voiceprint forty more times. Fixing one line and leaving thirty-nine wrong
 costs more than it saves.
 
-## 🔴 Before anything ships
+## Foundations are real
 
-**The colour primitives in `tokens.css` are provisional.** The real 15-primitive
-ramp is in the Mumble Figma file and has not been transcribed yet. They are
-referenced exactly once each, by the semantic tier, so replacing them is one
-edit to one block. Dark mode is an inversion, not a designed mode.
+Transcribed from [the Figma file](https://www.figma.com/design/KKImFpu7qv988QP6CVi9Mz/Mumble-App)
+via the plugin API on Aug 30 2026 — 49 variables across three collections and
+21 text styles. Not invented, not approximated.
+
+**Light mode only.** The variable collection has one mode. An inverted palette
+would be a mode nobody designed.
+
+### 🔴 Three things the design system does not define
+
+Named in one block in `tokens.css` so they are never mistaken for transcribed:
+
+| Gap | Current stand-in |
+|---|---|
+| **Focus ring** | `accent/base`. Obvious, but it is a code decision that should be pushed back into Figma. |
+| **Low-confidence tone** | Already logged in the vault as a defect — the chip is an instance override, not a `Tone` variant. |
+| **Border widths** | No variable exists; 1px and 2px are used throughout. |

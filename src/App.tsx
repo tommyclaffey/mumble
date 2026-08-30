@@ -39,22 +39,22 @@ export default function App() {
 
   return (
     <main style={{ padding: 'var(--space-32)', maxWidth: '44rem', margin: '0 auto' }}>
-      <h1 className="mb-type-display">{DEMO.title}</h1>
-      <p className="mb-type-caption" style={{ color: 'var(--text-muted)' }}>
+      <h1 className="mb-display-page">{DEMO.title}</h1>
+      <p className="mb-meta" style={{ color: 'var(--text-secondary)' }}>
         {isMeeting(DEMO) ? `${DEMO.speakers.length} speakers` : 'Solo note'} · {positionLabel(pos)}
       </p>
 
       <Surface tone="ai" className="mb-stack">
-        <p className="mb-type-micro" style={{ color: 'var(--accent-base)' }}>Summary</p>
-        <p className="mb-type-reading" style={{ margin: 0 }}>{DEMO.summary}</p>
+        <p className="mb-label-strong" style={{ color: 'var(--accent-base)' }}>Summary</p>
+        <p className="mb-body-reading" style={{ margin: 0 }}>{DEMO.summary}</p>
       </Surface>
 
       <Surface className="mb-stack">
         {DEMO.lines.map((line) => {
           const speaker = speakerFor(DEMO, line);
           return (
-            <p key={line.id} className="mb-type-reading" style={{ margin: '0 0 var(--space-12)' }}>
-              <strong className="mb-type-body-medium">{speaker?.name ?? 'You'}</strong>{' '}
+            <p key={line.id} className="mb-body-reading" style={{ margin: '0 0 var(--space-12)' }}>
+              <strong className="mb-label-large">{speaker?.name ?? 'You'}</strong>{' '}
               {isLowConfidence(line) && <ChipMeta tone="low-confidence">Low confidence</ChipMeta>}
               <br />
               {line.text}

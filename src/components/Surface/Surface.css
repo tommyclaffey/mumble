@@ -1,5 +1,6 @@
-.mb-surface { border-radius: var(--radius-lg); }
-.mb-surface.is-card   { background: var(--surface-card);   border: var(--border-width-sm) solid var(--border-subtle); }
+/* radius/xl = 12, the largest in the system. Cards are squarer than they look. */
+.mb-surface { border-radius: var(--radius-xl); }
+.mb-surface.is-card   { background: var(--surface-card);   border: var(--border-width-sm) solid var(--border-default); }
 .mb-surface.is-sunken { background: var(--surface-sunken); border: none; }
 /* No border. The tint IS the signal, and an outline on top of it reads as a
    second, competing boundary. */
